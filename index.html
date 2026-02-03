@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bridge Module UI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Main division -->
+<div class="main">
+  <h1>Group Design</h3>
+  <img src="">
+</div>
+
+<!-- Inputs Division -->
+<div class="container">
+
+  <div class="left-panel">
+
+    <div class="panel-body" id="geoPanel">
+      <div>
+
+        <button class="btn">Basic Inputs</button>
+        <button class="btn" onclick="popUp()">Additional Inputs</button>
+
+        <select id="st">
+          <option value="">Type Of Structure</option>
+          <option value="highway">Highway</option>
+          <option value="other">Other</option>
+        </select>
+
+        <p class="struct-info" id="structMsg"></p>
+
+        <!-- Project Location -->
+        <button id="openLocationBtn" class="locBtn">Select Project Location</button>
+
+        <h3>Location Details:</h3>
+        <div id="locationDetails" class="scrollable"></div>
+
+        <!-- Geometric Details -->
+        <label>Geometric Details:</label>
+
+        <input type="number" id="span" placeholder="Span Length (m)">
+        <p id="spanMsg" class="warn"></p>
+
+        <input type="number" id="width" placeholder="Carriageway Width (m)">
+        <p id="widthMsg" class="warn"></p>
+
+        <button id="openGeoBtn" class="adGeoBtn">Modify Additional Geometry</button>
+
+        <select id="footpath">
+            <option value="">Select Footpath</option>
+            <option>Single-sided</option>
+            <option>Both</option>
+            <option>None</option>
+        </select>
+
+        <input type="number" id="skew" placeholder="Skew Angle (deg)">
+        <p id="skewMsg" class="warn"></p>
+
+
+        <label>Material Details:</label>
+        <select>
+            <option>Grider</option>
+            <option>Grider-E250</option>
+            <option>Grider-E350</option>
+            <option>Grider-E450</option>
+        </select>
+
+        <select>
+            <option>Cross Bracing</option>
+            <option>Cross Bracing-E250</option>
+            <option>Cross Bracing-E350</option>
+            <option>Cross Bracing-E450</option>
+        </select>
+
+        <select>
+            <option>Deck</option>
+            <option>Deck-M25</option>
+            <option>Deck-M30</option>
+            <option>Deck-M35</option>
+            <option>Deck-M40</option>
+            <option>Deck-M45</option>
+            <option>Deck-M50</option>
+            <option>Deck-M55</option>
+            <option>Deck-M60</option>
+        </select>
+
+        <br><br>
+        <button onclick="submitData()">Save</button>
+
+      </div>
+    </div>
+
+    <div class="panel-header" onclick="togglePanel('geoPanel',this)">
+        <label>Inputs</label>
+        <span class="arrow">></span>
+    </div>
+
+  </div>
+
+  
+
+  <div class="viewsection">
+    <img src="Bridge Section.png" id="bridgeImg">
+  </div>
+
+</div>
+
+<!-- LOCATION MODAL -->
+<div id="locationModal" class="modal">
+  <div class="modal-content">
+
+    <span class="close">&times;</span>
+
+    <h3>Project Location</h3>
+
+    <label>State</label>
+    <select id="stateSelect">
+      <option value="">--Select State--</option>
+    </select>
+
+    <label>District</label>
+    <select id="districtSelect">
+      <option value="">--Select District--</option>
+    </select>
+
+    <hr>
+
+    <label>
+    <input type="checkbox" id="customCheck">
+        Tabulate Custom Loading Parameters
+    </label>
+
+    <button id="openTableBtn" disabled>Open Table</button>
+
+
+  </div>
+</div>
+
+<!-- MODIFY ADDITIONAL GEOMETRY MODAL -->
+<div id="geometryModal" class="modal">
+  <div class="modal-content">
+
+    <span class="close" id="closeGeo">&times;</span>
+    <h3>Modify Additional Geometry</h3>
+
+    <label>Girder Spacing (m)</label>
+    <input type="number" id="gSpacing" step="0.1">
+
+    <label>No. of Girders</label>
+    <input type="number" id="gCount">
+
+    <label>Deck Overhang Width (m)</label>
+    <input type="number" id="gOverhang" step="0.1">
+
+    <p id="geoError" style="color:red;font-size:13px;"></p>
+
+    <button id="saveGeoBtn">Save Geometry</button>
+
+  </div>
+</div>
+
+
+<!-- Custom Table Modal -->
+<div id="tableModal" class="modal">
+  <div class="modal-content">
+
+    <span class="close" id="closeTable">&times;</span>
+    <h3>Custom Loading Parameters</h3>
+
+    <table border="1" width="100%">
+      <tr>
+        <th>Parameter</th>
+        <th>Value</th>
+      </tr>
+
+      <tr>
+        <td>Basic Wind Speed (m/s)</td>
+        <td><input id="cWind"></td>
+      </tr>
+
+      <tr>
+        <td>Seismic Zone</td>
+        <td><input id="cZone"></td>
+      </tr>
+
+      <tr>
+        <td>Seismic Factor</td>
+        <td><input id="cFactor"></td>
+      </tr>
+
+      <tr>
+        <td>Max Shade Air Temp (°C)</td>
+        <td><input id="cMax"></td>
+      </tr>
+
+      <tr>
+        <td>Min Shade Air Temp (°C)</td>
+        <td><input id="cMin"></td>
+      </tr>
+    </table>
+
+    <br>
+    <button id="saveCustomBtn">Save Values</button>
+
+  </div>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>

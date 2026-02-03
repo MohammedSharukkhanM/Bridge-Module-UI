@@ -1,0 +1,187 @@
+/* ---------- GLOBAL RESET ---------- */
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family: Arial;
+  text-align: center;
+  background-color: #ffffff;
+}
+
+/* ---------- MAIN LAYOUT ---------- */
+
+.container{
+  display:flex;
+  height:100vh;
+}
+
+/* LEFT SIDE */
+
+.left-panel{
+  width:320px;
+  display:flex;
+  flex-direction:column;
+}
+
+/* HEADER */
+
+.panel-header{
+  background:#b5ffd0;
+  padding:8px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+/* BODY */
+
+.panel-body{
+  background:#fff9e9;
+  border:1px solid #aaa;
+  padding:10px;
+  display:none;
+  max-height:0;
+  overflow-y:auto;
+  transition:max-height 0.3s ease;
+}
+
+/* RIGHT SIDE */
+
+.viewsection{
+  flex:1;
+  background:#2e2d2d;
+  padding:25px;
+}
+
+/* ---------- INPUTS ---------- */
+
+.panel-body input,
+.panel-body select,
+.panel-body button{
+  width:100%;
+  padding:8px;
+  margin-top:6px;
+}
+
+.panel-body label{
+  margin-top:10px;
+  display:block;
+}
+
+.struct-info{
+  color:rgb(180,0,180);
+  font-size:13px;
+}
+
+/* ---------- BUTTONS ---------- */
+
+.btn{
+  width:120px;
+  height:30px;
+  border-radius:10px;
+  background:#b5ffd0;
+  transform: scale(1);
+  transition: transform 0.3s ease-in-out; 
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.locBtn,
+.adGeoBtn{
+  height:30px;
+  border-radius:10px;
+  background:#ffbab5;
+  transform: scale(1);
+  transition: transform 0.3s ease-in-out; 
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn:hover {
+  background-color: rgb(230, 221, 173); 
+  color: black;
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+.locBtn:hover {
+  background-color: rgb(255, 155, 109); 
+  color: black;
+  cursor: pointer;
+  transform: scale(1.05); 
+}
+
+.adGeoBtn:hover {
+  background-color: rgb(255, 155, 109); 
+  color: black;
+  cursor: pointer;
+  transform: scale(1.05); 
+}
+
+/* ---------- LOCATION DETAILS ---------- */
+
+#locationDetails{
+  color:#16e000;
+  font-size:14px;
+}
+
+.scrollable{
+  max-height:150px;
+  overflow-y:auto;
+  border:1px solid #ccc;
+  padding:5px;
+  background:#f9f9f9;
+}
+
+/* ---------- WARN TEXT ---------- */
+
+.warn{
+  color:red;
+  font-size:13px;
+}
+
+/* ---------- MODALS ---------- */
+
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.5);
+  z-index:1000;
+}
+
+.modal-content{
+  background:#fff;
+  width:400px;
+  margin:8% auto;
+  padding:20px;
+  border-radius:8px;
+}
+
+.modal-content input,
+.modal-content select{
+  width:100%;
+  padding:6px;
+  margin-top:6px;
+}
+
+/* ---------- CLOSE BUTTON ---------- */
+
+.close{
+  float:right;
+  font-size:22px;
+  cursor:pointer;
+  color:#777;
+}
+
+.close:hover{
+  color:black;
+}
+
+/* ---------- TABLE ---------- */
+
+table input{
+  width:100%;
+  padding:5px;
+}
